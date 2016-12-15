@@ -48,9 +48,13 @@
   text-align: center;
 }
 .pane-tip{
-  padding: 20rpx;
-  color:#aaa;
+  padding:10rpx 20rpx;
 }
+.pane-tip .text{
+  color:#888;
+  font-size: 12px;
+}
+
 .pane-hero{
   background: white;
   padding: 60rpx;
@@ -62,6 +66,10 @@
 }
 .border.dashed{
   border-top: 1px dashed #e7e7e9;
+}
+
+.divider{
+  border-top: 1px solid #e7e7e9;
 }
 
 .section{
@@ -420,8 +428,15 @@
   width:64rpx;
   height:64rpx;
 }
+.icon.middle{
+  width:48rpx;
+  height:48rpx;
+}
 .icon.small{
   width:32rpx;
   height:32rpx;
 }
 
+.opacity50{
+  opacity: .5 
+}

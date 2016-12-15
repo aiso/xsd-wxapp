@@ -1,10 +1,38 @@
 <!--index.wxml-->
 <view class="page">
-  <view  class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view class="pane  bg-soft text-center">
+	<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>	
+	<view class="flex-column">
+		<text class="userinfo-tip text-h2 mb10">请选择您登录角色</text>
+		<text class="userinfo-nickname text-h4">欢迎您，{{userInfo.nickName}}！</text>		
+	</view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <navigator url="../client/access">
+	<view class="p30 btn flex-row border-bottom">
+		<image class="icon middle opacity50" src="/images/icons/shopping-cart.png"></image>
+		<view class="plr30 flex-auto">
+			<text class="text-h2 text-ls">客户</text>
+		</view>
+	</view>
+  </navigator>
+	<view class="p30 btn flex-row border-bottom">
+		<image class="icon middle opacity50" src="/images/icons/tag.png"></image>
+		<view class="plr30 flex-auto">
+			<text class="text-h2 text-ls">供应商</text>
+		</view>
+	</view>
+	<view class="p30 btn flex-row border-bottom">
+		<image class="icon middle opacity50" src="/images/icons/home-outline.png"></image>
+		<view class="plr30 flex-auto">
+			<text class="text-h2 text-ls">服务站</text>
+		</view>
+	</view>
+	<navigator url="../demo/index">
+		<view class="p30 btn flex-row border-bottom">
+			<image class="icon middle opacity50" src="/images/icons/hammer.png"></image>
+			<view class="plr30 flex-auto">
+				<text class="text-h2 text-ls">DEMO</text>
+			</view>
+		</view>
+	</navigator>
 </view>
