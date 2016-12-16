@@ -1,4 +1,7 @@
 //app.js
+var Promise = require("./utils/bluebird.min")
+var xsd = require("./xsd/index")
+
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -6,25 +9,41 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
   },
-  getUserInfo:function(cb){
-    var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
+  getUserInfo(){
+    //console.log(this.globalData)
+    if(!!this.globalData.userInfo) 
+      return Promise.resolve(this.globalData.userInfo)
+
+    const that = this
+    return new Promise((resolve, reject) => {
+      that.login().then(()=>{
+        wx.getUserInfo({
+          success: function (res) {
+            //console.log(res.userInfo)
+            that.globalData.userInfo = res.userInfo
+            resolve(res.userInfo)
+          }
+        })
+      })
+    })
+  },
+  login(){
+    if(!!this.globalData.accessCode) 
+      return Promise.resolve(this.globalData.accessCode)
+
+    const that = this
+    return new Promise((resolve, reject) => {
       wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
+        success: (res)=>{
+          that.globalData.accessCode = res.code
+          resolve(res.code)
         }
       })
-    }
+    })
   },
   globalData:{
+    env:'dev',
+    debugUser:'client-test1',
     userInfo:null
   }
 })

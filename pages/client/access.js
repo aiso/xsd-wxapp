@@ -5,7 +5,8 @@ Page({
   data:{
   	station:'',
   	stations:[],
-  	disabled:true
+  	disabled:true,
+    loading:false
   },
   onLoad(options){
     xsd.api.get('stations', true).then(data=>{
@@ -18,5 +19,25 @@ Page({
   },  
   selectStation(e){
   	this.setData({station:e.currentTarget.dataset.station, disabled:false})
+  },
+  access(){
+    this.setData({
+      disabled:true,
+      loading: true,
+    })
+    var app = getApp()
+    app.getUserInfo().then(userInfo=>{
+      const postData = {code: app.globalData.accessCode, station:this.data.station}
+      !!app.globalData.debugUser && (postData.code = app.globalData.debugUser) //是否调试用户
+      return xsd.api.post('client/access', postData).then(data=>{
+          data.user.info = userInfo
+          xsd.auth.login(data.user)
+      })
+    }).finally(()=>{
+      this.setData({
+        disabled:false,
+        loading: false,
+      })
+    })
   }
 })

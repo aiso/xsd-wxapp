@@ -45,9 +45,11 @@ const login = user => {
   store(user).then(()=>{
   	getApp().globalData.user = user
     wx.showToast({title:'登录成功', icon:'success'})
+
     setTimeout(function() {
       wx.navigateBack()
     }, 500)
+
   })
 
 }

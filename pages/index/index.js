@@ -1,20 +1,20 @@
 //index.js
 //获取应用实例
 var app = getApp()
+
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    userInfo: null
   },
-  onLoad: function () {
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
+  onShow(){
+    const user = app.globalData.user
+    if(!!user){
+      console.log(user)
+    }else if(!this.data.userInfo){
+      console.log(app.globalData)
+      app.getUserInfo().then(()=>{
+        this.setData({userInfo:app.globalData.userInfo})
       })
-    })
-  }
+    }
+  },
 })
