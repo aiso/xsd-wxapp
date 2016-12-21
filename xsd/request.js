@@ -17,7 +17,7 @@ const _request = opts => {
 	  	if(res.statusCode==200)
 	  		resolve(res.data)
 	  	else if(res.statusCode==401){
-	  		wx.navigateTo({url:'/pages/user/login'})
+	  		wx.navigateTo({url:'/pages/index/login'})
 	  	}
 	  	else{
 	  		const msg = (!!res.data.error)?res.data.error.message:res.data

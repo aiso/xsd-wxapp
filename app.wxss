@@ -169,6 +169,14 @@
   font-family: Montserrat;
 }
 
+.hint-number{
+  border-radius: 20px;
+  font-size: 12px;
+  background: #aaa;
+  color:white;
+  padding:3px 5px;
+}
+
 .single-line{
     text-overflow:ellipsis;white-space:nowrap;overflow:hidden
 }
@@ -290,6 +298,18 @@
 .mb40{
   margin-bottom:40rpx;
 }
+.mt10{
+  margin-top:10rpx;
+}
+.mt20{
+  margin-top:20rpx;
+}
+.mt30{
+  margin-top:30rpx;
+}
+.mt40{
+  margin-top:40rpx;
+}
 .mr20{
   margin-right: 20rpx;
 }
@@ -379,6 +399,7 @@
 .bg-red{
   background: #e64340;
 }
+
 
 .ib{
   display: inline-block;

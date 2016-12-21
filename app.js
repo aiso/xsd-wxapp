@@ -8,6 +8,8 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    xsd.auth.load()
   },
   getUserInfo(){
     //console.log(this.globalData)
@@ -43,7 +45,6 @@ App({
   },
   globalData:{
     env:'dev',
-    debugUser:'client-test1',
     userInfo:null
   }
 })

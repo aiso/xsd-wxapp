@@ -13,7 +13,7 @@ const stations = sync.initEntity('stations', ()=>{
 //const stations = sync.setEntity('stations')
 
 const base = sync.initEntity('base', ()=>{
-    return api.get('supplier/base').then(data=>{
+    return api.get('xsd/base').then(data=>{
       return data.base
     })
 })

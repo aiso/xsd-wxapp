@@ -1,9 +1,12 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index/login",
     "pages/logs/logs",
 
     "pages/client/access",
+    "pages/client/index",
+    "pages/client/posts",
 
     "pages/demo/index"
   ],
