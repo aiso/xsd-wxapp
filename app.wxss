@@ -283,6 +283,12 @@
 .plr30{
   padding:0 30rpx;
 }
+.m10{
+  margin:10rpx;
+}
+.m15{
+  margin:15rpx;
+}
 .mb5{
   margin-bottom:5rpx;
 }
@@ -410,8 +416,16 @@
 }
 
 .btn-icon{
+  padding:15rpx;
+}
+.btn-icon .icon{
   width:40rpx;
   height: 40rpx;
+  display: block;
+}
+.btn-icon:active{
+  background: #e1e1e1;
+  border-radius: 50%;
 }
 
 .avatar{

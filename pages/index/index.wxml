@@ -22,12 +22,14 @@
 				<text class="text-h2 text-ls">供应商</text>
 			</view>
 		</view>
-		<view class="p30 btn flex-row border-bottom">
-			<image class="icon middle opacity50" src="/images/icons/home-outline.png"></image>
-			<view class="plr30 flex-auto">
-				<text class="text-h2 text-ls">服务站</text>
+		<navigator url="../station/access">
+			<view class="p30 btn flex-row border-bottom">
+				<image class="icon middle opacity50" src="/images/icons/home-outline.png"></image>
+				<view class="plr30 flex-auto">
+					<text class="text-h2 text-ls">服务站</text>
+				</view>
 			</view>
-		</view>
+		</navigator>
 		<navigator url="../demo/index">
 			<view class="p30 btn flex-row border-bottom">
 				<image class="icon middle opacity50" src="/images/icons/hammer.png"></image>

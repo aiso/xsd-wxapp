@@ -8,6 +8,8 @@
     "pages/client/index",
     "pages/client/posts",
 
+    "pages/station/access",
+
     "pages/demo/index"
   ],
   "window":{
