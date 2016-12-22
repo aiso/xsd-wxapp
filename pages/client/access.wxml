@@ -2,7 +2,7 @@
 	<view class="pane-tip bg-soft"><text class="text">选择服务站</text></view>
 	<view class="pane input-field border-bottom">
 		<text class="label">服务站ID：</text>
-		<input bindinput="inputChanged" class="input" placeholder="手输或选择下面列表" value="{{station}}" style="width:40px" />
+		<input bindinput="inputChanged" class="input" placeholder="手输或选择下面列表" value="{{station}}"  />
 		<button type="primary" size="mini" disabled="{{disabled}}" loading="{{loading}}" bindtap="access">下一步</button>
 	</view>
 	<view class="pane-tip bg-soft border-bottom"><text class="text">服务站列表</text></view>
