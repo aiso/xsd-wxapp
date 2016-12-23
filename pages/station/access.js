@@ -3,28 +3,35 @@ const xsd = require("../../xsd/index")
 
 Page({
   data:{
-  	disabled:true
+    token:'',
+    tokenLength:0,
+    loading:false
   },
-  formSubmit(e){
-  	console.log(e)
-  	if(/^\d{4}$/.test(e.detail.value.station) && /^\w{12}$/.test(e.detail.value.access_code)){
-  	  const app = getApp()
-  	  app.getUserInfo().then(userInfo=>{
-  	  	const postData = {code:app.globalData.accessCode, userInfo, access:e.detail.value}
-  	  	!!getApp().globalData.debugUser && (postData.code = getApp().globalData.debugUser) //是否调试用户
+  tokenChange(e){
+    this.setData({token:e.detail.value, tokenLength:e.detail.value.length})
+  },
+  clear(){
+    this.setData({token:'',tokenLength:0})
+  },
+  access(){
+  	if(/^\w{8}$/.test(this.data.token) && this.data.loading==false){
+      this.setData({loading:true})
+      wx.showNavigationBarLoading()
 
-        wx.showNavigationBarLoading()
-  	  	xsd.api.post('station/access', postData).then(data=>{
-          xsd.auth.store(data.user).then(()=>{
-            wx.showToast({title:'接入成功', icon:'success'})
-            setTimeout(function() {
-              wx.navigateBack()
-            }, 500)
-          })
-  	  	}).finally(()=>{
-          wx.hideNavigationBarLoading()
+      var app = getApp()
+      app.getUserInfo().then(userInfo=>{
+        const postData = {code: app.globalData.accessCode, token:this.data.token, userInfo}
+        postData.code = 'station-client1' //调试用户
+        return xsd.api.post('station/access', postData).then(data=>{
+            data.user.info = userInfo
+            xsd.auth.login(data.user)
         })
-  	  })
+      }).finally(()=>{
+        wx.hideNavigationBarLoading()
+        this.setData({
+          loading: false,
+        })
+      })
   	}
   }
 

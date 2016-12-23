@@ -71,6 +71,11 @@
 .divider{
   border-top: 1px solid #e7e7e9;
 }
+.divider-vert{
+  border-left: 1px solid #e7e7e9;
+  height: 40rpx;
+}
+
 
 .section{
   margin:30rpx;
@@ -164,6 +169,13 @@
 .border-bottom{
   border-bottom: 1rpx solid #e7e7e9;
 }
+.border-left{
+  border-left: 1rpx solid #e7e7e9;
+}
+.border-right{
+  border-right: 1rpx solid #e7e7e9;
+}
+
 
 .font-number{
   font-family: Montserrat;
@@ -424,9 +436,10 @@
   display: block;
 }
 .btn-icon:active{
-  background: #e1e1e1;
   border-radius: 50%;
+  background: #e1e1e1;
 }
+
 
 .avatar{
   background-color: #eee;
@@ -460,6 +473,7 @@
 }
 
 .icon{
+  display: block;
   width:64rpx;
   height:64rpx;
 }

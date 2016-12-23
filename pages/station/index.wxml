@@ -1,0 +1,36 @@
+<view class="page bg-white">
+	<view class="pane-hero">
+		<view class="flex-row plr20 mb30" wx:if="{{!!userInfo}}">
+			<image src="{{userInfo.avatarUrl}}" class="avatar small" mode="aspectFill"></image>
+			<view class="pl30 flex-column">
+				<text class="text-h2 mb5">{{userInfo.nickName}}</text>
+				<text class="text-h5 c-gray">微信客户</text>
+			</view>
+		</view>
+		<view class="divider mt20 mb20"></view>
+		<view class="list-item p30">
+			<image class="icon middle opacity50" src="/images/icons/layers.png"></image>
+			<view class="plr30 flex-auto">
+				<text class="text-h3 text-ls">服务单</text>
+			</view>
+			<view>
+				<text class="hint-number">323</text>
+			</view>
+		</view>
+		<view class="list-item p30">
+			<image class="icon middle opacity50" src="/images/icons/head.png"></image>
+			<view class="plr30 flex-auto">
+				<text class="text-h3 text-ls">用户</text>
+			</view>
+		</view>
+		<navigator url="../demo/index">
+			<view class="list-item pr30">
+				<image class="icon middle opacity50" src="/images/icons/hammer.png"></image>
+				<text class="flex-auto plr30">调试</text>
+			</view> 
+		</navigator>
+	</view>
+
+	
+
+</view>

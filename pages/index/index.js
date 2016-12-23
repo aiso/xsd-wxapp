@@ -11,16 +11,24 @@ Page({
   onLoad(){
     xsd.api.get('xsd/base').then(data=>{
       sync.setEntity('base', data.base)
+      this.redirect()
+    })
+  },
+  onShow(){
+    this.redirect()
+  },
+  redirect(){
       const user = app.globalData.user
       if(!!user){
         if(user.protype == 10)
           wx.redirectTo({url:'../client/index'})
+        else if(user.protype == 30)
+          wx.redirectTo({url:'../station/index'})
         
       }else if(!this.data.userInfo){
         app.getUserInfo().then(()=>{
           this.setData({userInfo:app.globalData.userInfo})
         })
       }
-    })
-  },
+  }
 })

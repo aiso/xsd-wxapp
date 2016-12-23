@@ -9,6 +9,7 @@
     "pages/client/posts",
 
     "pages/station/access",
+    "pages/station/index",
 
     "pages/demo/index"
   ],
